@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project_app/app/routes/app_pages.dart';
+import 'package:flutter_project_app/app/utils/style/AppColors.dart';
 import 'package:get/get.dart';
 
 class SiteBar extends StatelessWidget {
@@ -13,7 +14,7 @@ class SiteBar extends StatelessWidget {
       elevation: 0,
       child: Container(
         height: Get.height,
-        color: Colors.blue[100],
+        color: AppColors.primaryBg,
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -50,7 +51,8 @@ class SiteBar extends StatelessWidget {
                             Get.currentRoute == '/home'
                                 ? Icons.desktop_mac_sharp
                                 : Icons.desktop_windows_outlined,
-                            color: Colors.grey,
+                                //AppColors = merubah keseluruhan tampilan 'Text' yang berada di "utils = style"
+                            color: AppColors.primaryText,
                             size: 30,
                           ),
                         ),
@@ -60,7 +62,8 @@ class SiteBar extends StatelessWidget {
                         const Text(
                           'Home',
                           style: TextStyle(
-                            color: Colors.grey,
+                            //AppColors = merubah keseluruhan tampilan 'Text' yang berada di "utils = style"
+                            color: AppColors.primaryText,
                             fontSize: 16,
                           ),
                         ),
@@ -90,7 +93,8 @@ class SiteBar extends StatelessWidget {
                             Get.currentRoute == '/task'
                                 ? Icons.chat_bubble
                                 : Icons.chat_outlined,
-                            color: Colors.grey,
+                                //AppColors = merubah keseluruhan tampilan 'Text' yang berada di "utils = style"
+                            color: AppColors.primaryText,
                             size: 30,
                           ),
                         ),
@@ -100,7 +104,8 @@ class SiteBar extends StatelessWidget {
                         const Text(
                           'Task',
                           style: TextStyle(
-                            color: Colors.grey,
+                            //AppColors = merubah keseluruhan tampilan 'Text' yang berada di "utils = style"
+                            color: AppColors.primaryText,
                             fontSize: 16,
                           ),
                         ),
@@ -130,7 +135,8 @@ class SiteBar extends StatelessWidget {
                             Get.currentRoute == '/friends'
                                 ? Icons.how_to_reg
                                 : Icons.how_to_reg_outlined,
-                            color: Colors.grey,
+                            //AppColors = merubah keseluruhan tampilan 'Text' yang berada di "utils = style"
+                            color: AppColors.primaryText,
                             size: 30,
                           ),
                         ),
@@ -140,7 +146,8 @@ class SiteBar extends StatelessWidget {
                         const Text(
                           'Friends',
                           style: TextStyle(
-                            color: Colors.grey,
+                            //AppColors = merubah keseluruhan tampilan 'Text' yang berada di "utils = style"
+                            color: AppColors.primaryText,
                             fontSize: 16,
                           ),
                         ),
@@ -170,7 +177,8 @@ class SiteBar extends StatelessWidget {
                             Get.currentRoute == '/profile'
                                 ? Icons.person
                                 : Icons.person_outlined,
-                            color: Colors.grey,
+                                //AppColors = merubah keseluruhan tampilan 'Text' yang berada di "utils = style"
+                            color: AppColors.primaryText,
                             size: 30,
                           ),
                         ),
@@ -180,7 +188,8 @@ class SiteBar extends StatelessWidget {
                         const Text(
                           'Profile',
                           style: TextStyle(
-                            color: Colors.grey,
+                            //AppColors = merubah keseluruhan tampilan 'Text' yang berada di "utils = style"
+                            color: AppColors.primaryText,
                             fontSize: 16,
                           ),
                         ),
