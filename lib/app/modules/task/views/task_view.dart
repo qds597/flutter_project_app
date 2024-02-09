@@ -85,9 +85,10 @@ class TaskView extends GetView<TaskController> {
                       ),
                     ),
               Expanded(
-                child: Expanded(
-                    child: Container(
-                  padding: const EdgeInsets.all(50),
+                child: Container(
+                  padding: !context.isPhone
+                      ? const EdgeInsets.all(50)
+                      : const EdgeInsets.all(20),
                   margin: !context.isPhone
                       ? const EdgeInsets.all(10)
                       : const EdgeInsets.all(0),
@@ -97,7 +98,110 @@ class TaskView extends GetView<TaskController> {
                         ? BorderRadius.circular(50)
                         : BorderRadius.circular(30),
                   ),
-                )),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'My Task',
+                        style: TextStyle(
+                          color: AppColors.primaryText,
+                          fontSize: 30,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Expanded(
+                        child: ListView.builder(
+                          itemCount: 8,
+                          clipBehavior: Clip.antiAlias,
+                          shrinkWrap: true,
+                          itemBuilder: (context, index) {
+                            return Container(
+                              height: 200,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: AppColors.cardBg,
+                              ),
+                              margin: const EdgeInsets.all(10),
+                              padding: const EdgeInsets.all(20),
+                              child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(25),
+                                          child: const CircleAvatar(
+                                            backgroundColor: Colors.amber,
+                                            radius: 20,
+                                            foregroundImage: NetworkImage(
+                                                'https://static.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2023/07/31/Gear-5-Monkey-D-Luffy-628105818.jpg'),
+                                          ),
+                                        ),
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(25),
+                                          child: const CircleAvatar(
+                                            backgroundColor: Colors.amber,
+                                            radius: 20,
+                                            foregroundImage: NetworkImage(
+                                                'https://static.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2023/07/31/Gear-5-Monkey-D-Luffy-628105818.jpg'),
+                                          ),
+                                        ),
+                                        //Membuat spasi di dalam tampilan 'Colomn dan Row'
+                                        const Spacer(),
+                                        Container(
+                                          height: 25,
+                                          width: 80,
+                                          color: AppColors.primaryBg,
+                                          child: const Center(
+                                              child: Text(
+                                            '100%',
+                                            style: TextStyle(
+                                              color: AppColors.primaryText,
+                                            ),
+                                          )),
+                                        ),
+                                      ],
+                                    ),
+                                    const Spacer(),
+                                    Container(
+                                      height: 25,
+                                      width: 80,
+                                      color: AppColors.primaryBg,
+                                      child: const Center(
+                                        child: Text(
+                                          '10 / 10 Task',
+                                          style: TextStyle(
+                                            color: AppColors.primaryText,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    const Text(
+                                      'Pemerograman Mobile',
+                                      style: TextStyle(
+                                        color: AppColors.primaryText,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                    const Text(
+                                      'Deadline 2 hari Lagi',
+                                      style: TextStyle(
+                                        color: AppColors.primaryText,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ]),
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               )
             ]),
           )
