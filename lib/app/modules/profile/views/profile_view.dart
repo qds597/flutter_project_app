@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project_app/app/routes/app_pages.dart';
 import 'package:flutter_project_app/app/utils/style/AppColors.dart';
 import 'package:flutter_project_app/app/utils/widget/header.dart';
 import 'package:flutter_project_app/app/utils/widget/myTask.dart';
@@ -68,21 +69,39 @@ class ProfileView extends GetView<ProfileController> {
                             ],
                           ),
                           const Spacer(),
-                          const Icon(
-                            Icons.notifications,
-                            color: AppColors.primaryText,
-                            size: 30,
-                          ),
-                          const SizedBox(
-                            width: 15,
-                          ),
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(30),
-                            child: const CircleAvatar(
-                              backgroundColor: Colors.amber,
-                              radius: 25,
-                              foregroundImage: NetworkImage(
-                                  'https://static.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2023/07/31/Gear-5-Monkey-D-Luffy-628105818.jpg'),
+                          GestureDetector(
+                            onTap: () {
+                              Get.defaultDialog(
+                                title: 'Sign Out',
+                                content:
+                                    const Text('Are you sure want sign out?'),
+                                cancel: ElevatedButton(
+                                  onPressed: () => Get.back(),
+                                  child: const Text('Cancel'),
+                                ),
+                                confirm: ElevatedButton(
+                                  onPressed: () => Get.toNamed(Routes.LOGIN),
+                                  child: const Text('Sign Out'),
+                                ),
+                              );
+                            },
+                            child: const Row(
+                              children: [
+                                Text(
+                                  'Sign Out',
+                                  style: TextStyle(
+                                      color: AppColors.primaryText,
+                                      fontSize: 15),
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Icon(
+                                  Icons.login_outlined,
+                                  color: AppColors.primaryText,
+                                  size: 30,
+                                ),
+                              ],
                             ),
                           ),
                         ],
