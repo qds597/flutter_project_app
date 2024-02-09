@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project_app/app/utils/style/AppColors.dart';
 import 'package:flutter_project_app/app/utils/widget/header.dart';
+import 'package:flutter_project_app/app/utils/widget/myTask.dart';
+import 'package:flutter_project_app/app/utils/widget/profileW.dart';
 import 'package:flutter_project_app/app/utils/widget/sitebar.dart';
 
 import 'package:get/get.dart';
@@ -11,6 +13,8 @@ class ProfileView extends GetView<ProfileController> {
   // GlobalKey = Membuat kata kunci untuk keseluruhan yang ada di dalam '_draweKey'
   final GlobalKey<ScaffoldState> _drawerKey = GlobalKey();
 
+  ProfileView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +24,7 @@ class ProfileView extends GetView<ProfileController> {
       backgroundColor: AppColors.primaryBg,
       body: Row(
         children: [
-          //Tidak sama Phone
+          //Jika tidak sama Phone
           !context.isPhone
               ? const Expanded(
                   flex: 2,
@@ -80,14 +84,16 @@ class ProfileView extends GetView<ProfileController> {
                               foregroundImage: NetworkImage(
                                   'https://static.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2023/07/31/Gear-5-Monkey-D-Luffy-628105818.jpg'),
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
+              //content / isi page /screen
               Expanded(
-                child: Expanded(
-                    child: Container(
-                  padding: const EdgeInsets.all(50),
+                child: Container(
+                  padding: !context.isPhone
+                      ? const EdgeInsets.all(50)
+                      : const EdgeInsets.all(20),
                   margin: !context.isPhone
                       ? const EdgeInsets.all(10)
                       : const EdgeInsets.all(0),
@@ -97,8 +103,28 @@ class ProfileView extends GetView<ProfileController> {
                         ? BorderRadius.circular(50)
                         : BorderRadius.circular(30),
                   ),
-                )),
-              )
+                  child: const Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ProfileW(),
+                        Text(
+                          'My Task',
+                          style: TextStyle(
+                            color: AppColors.primaryText,
+                            fontSize: 30,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        SizedBox(
+                          height: 200,
+                          child: MyTask(),
+                        ),
+                      ]),
+                ),
+              ),
             ]),
           )
         ],
