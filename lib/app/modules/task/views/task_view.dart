@@ -101,14 +101,14 @@ class TaskView extends GetView<TaskController> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         'My Task',
                         style: TextStyle(
                           color: AppColors.primaryText,
                           fontSize: 30,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Expanded(
@@ -206,6 +206,29 @@ class TaskView extends GetView<TaskController> {
             ]),
           )
         ],
+      ),
+      floatingActionButton: Align(
+        alignment: const Alignment(0.9, 0.9),
+        child: FloatingActionButton.extended(
+          onPressed: () {
+            Get.bottomSheet(
+              Container(
+                margin: context.isPhone
+                    ? EdgeInsets.zero
+                    : const EdgeInsets.only(left: 50, right: 50),
+                height: Get.height,
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20)),
+                  color: Colors.white,
+                ),
+              ),
+            );
+          },
+          label: const Text('Add Task'),
+          icon: const Icon(Icons.add),
+        ),
       ),
     );
   }
